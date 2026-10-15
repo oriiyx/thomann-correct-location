@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Thomann → Slovenia",
+  "version": "1.0.0",
+  "description": "Forces every Thomann link to open in the Slovenia (en-si) shop instead of the US shop.",
+  "permissions": ["declarativeNetRequest"],
+  "host_permissions": ["*://*.thomannmusic.com/*"],
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "si_rules", "enabled": true, "path": "rules.json" }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.thomann.de/*",
+        "*://*.thomann.at/*",
+        "*://*.thomann.co.uk/*",
+        "*://*.thomann.ie/*",
+        "*://*.thomann.fr/*",
+        "*://*.thomann.it/*",
+        "*://*.thomann.es/*",
+        "*://*.thomann.pt/*",
+        "*://*.thomann.nl/*",
+        "*://*.thomann.lu/*",
+        "*://*.thomann.pl/*",
+        "*://*.thomann.cz/*",
+        "*://*.thomann.dk/*",
+        "*://*.thomann.se/*",
+        "*://*.thomann.fi/*",
+        "*://*.thomann.gr/*",
+        "*://*.thomann.ro/*",
+        "*://*.thomann.ae/*",
+        "*://*.thomannmusic.ch/*",
+        "*://*.thomannmusic.no/*",
+        "*://*.thomannmusic.hu/*"
+      ],
+      "js": ["redirect.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": { "128": "icons/icon128.png" }
+}
