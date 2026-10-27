@@ -1,1 +1,5 @@
 .idea
+# Chrome writes this into the unpacked extension folder on load
+extension/_metadata/
+# web-ext build output
+web-ext-artifacts/

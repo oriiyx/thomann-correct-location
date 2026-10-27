@@ -3,11 +3,30 @@
   "name": "Thomann → Slovenia",
   "version": "1.0.0",
   "description": "Forces every Thomann link to open in the Slovenia (en-si) shop instead of the US shop.",
-  "permissions": ["declarativeNetRequest"],
-  "host_permissions": ["*://*.thomannmusic.com/*"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "thomann-slovenia@peterparavinja",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "permissions": [
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "*://*.thomannmusic.com/*"
+  ],
   "declarative_net_request": {
     "rule_resources": [
-      { "id": "si_rules", "enabled": true, "path": "rules.json" }
+      {
+        "id": "si_rules",
+        "enabled": true,
+        "path": "rules.json"
+      }
     ]
   },
   "content_scripts": [
@@ -35,9 +54,13 @@
         "*://*.thomannmusic.no/*",
         "*://*.thomannmusic.hu/*"
       ],
-      "js": ["redirect.js"],
+      "js": [
+        "redirect.js"
+      ],
       "run_at": "document_start"
     }
   ],
-  "icons": { "128": "icons/icon128.png" }
+  "icons": {
+    "128": "icons/icon128.png"
+  }
 }
